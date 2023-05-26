@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    
+    <header>
+        <div class="header-main">
+            <h1 class="me">Furkan Solak</h1>
+            <nav class="brands">
+                <a href=""><i class="fa-brands fa-facebook-f"></i></a> 
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <form class="form">
+                    <input type="text" class="search"  id="search">
+                    <i  ></i>
+                    <button id="btn" value="search" type="button" onclick="deneme()"><i class="btn fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <i class="fa-solid fa-bars" id="bar" style="display:none" onclick="res()"></i>
+                
+                
+            </nav>
+        <script>
+            bar = document.getElementById("search");
+            bar.onclick() = function(){
+                navbar = document.querySelector(".header-nav");
+                navbar.classList.toggle("active");
+            }
+        </script>
+        </div>
+        <nav class="header-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="entertainment.html">Entertainment</a></li>
+                    <li><a href="general.html">General</a></li>
+                    <li><a href="health.html">Health</a></li>
+                    <li><a href="science.html">Science</a></li>
+                    <li><a href="sports.html">Sports</a></li>
+                    <li><a href="tecnologies.html">Tecnologies</a></li>
+                </ul>
+        </nav>
+        
+        <hr class="hr-x"> 
+        
+    </header>
+
+    <div class="slider-container">
+
+        <div class="slides fade">
+            <div class="slider-image"><img src="https://img.freepik.com/premium-photo/news-intro-graphic-animation-with-circles-world-map-abstract-background-elegant-luxury-3d-illustration-style-news-business-template_510351-1022.jpg" alt="background_2"></div>
+            <div class="slider-caption">
+                <p id="caption0"></p>
+            </div>
+        </div> 
+    
+    
+        <div class="slides fade">
+            <div class="slider-image"><img src="https://img.freepik.com/premium-photo/news-intro-graphic-animation-with-circles-world-map-abstract-background-elegant-luxury-3d-illustration-style-news-business-template_510351-1022.jpg" alt="background_2"></div>
+            <div class="slider-caption">
+                <p id="caption1"></p>
+            </div>
+        </div> 
+    
+        <div class="slides fade">
+            <div class="slider-image"><img src="https://img.freepik.com/premium-photo/news-intro-graphic-animation-with-circles-world-map-abstract-background-elegant-luxury-3d-illustration-style-news-business-template_510351-1022.jpg" alt="background_3"></div>
+            <div class="slider-caption">
+                <p id="caption2"></p>    
+            </div>
+        </div> 
+    
+        <div class="slides fade">
+            <div class="slider-image"><img src="https://img.freepik.com/premium-photo/news-intro-graphic-animation-with-circles-world-map-abstract-background-elegant-luxury-3d-illustration-style-news-business-template_510351-1022.jpg" alt="background_4"></div>
+            <div class="slider-caption">
+                <p id="caption3"></p>
+            </div>
+        </div> 
+    
+        
+        <a class="prev" onclick="plusIndex(-1)">❮</a>
+        <a class="next" onclick="plusIndex(+1)">❯</a>
+    
+        
+        <div class="slider-bullets" id="slider-bullets">
+            <span class="dots" onclick="currentSlide(1)"></span>
+            <span class="dots" onclick="currentSlide(2)"></span>
+            <span class="dots" onclick="currentSlide(3)"></span>
+            <span class="dots" onclick="currentSlide(4)"></span>
+        </div> 
+        
+    </div>
+    <script>
+        async function getapi1(url) {
+       
+        const response = await fetch(url);
+                
+        
+        var data = await response.json();
+        for (let index = 0; index < 4; index++) {
+            document.getElementById("caption" + index).innerText =data["articles"][index].title;
+        }
+       
+        }
+        getapi1("https://newsapi.org/v2/top-headlines?country=tr&apiKey=e1a6cd23742e4b9cb1be0dffe686ab93");
+
+    </script>
+    <script>
+        var slideIndex = 1;
+
+    function showImage(n) { 
+
+    'use strict';
+
+    var slide = document.getElementsByClassName('slides'),
+        
+        dots = document.getElementsByClassName('dots'),
+        
+        i;
+
+    if (n > slide.length) { 
+        
+        slideIndex = 1;
+    }
+
+    if (n < 1) { 
+        
+        slideIndex = slide.length;
+    }
+
+    for (i = 0; i < slide.length; i++) { 
+        
+        slide[i].style.display = 'none';
+    }
+    slide[slideIndex - 1].style.display = 'block';
+
+    for (i = 0; i < dots.length; i++) { 
+        
+        dots[i].className = dots[i].className.replace(' active', '');
+    }
+
+    dots[slideIndex - 1].className += ' active';
+    }
+
+    showImage(slideIndex);
+
+    function plusIndex(n) { 
+
+    'use strict';
+
+    showImage(slideIndex += n);
+    }
+
+    function currentSlide(n) { 
+
+    'use strict';
+
+    showImage(slideIndex = n);
+    }
+    </script>
+    <div class="content">
+        <ul class="news-list">
+            <li class="news">
+                <div>
+                    <img src="https://picsum.photos/300/300?random=1">
+                </div>
+                <a href="" id="links0">
+                    <p id="news0">
+                    
+                    </p>
+                </a>
+            </li>
+            <li class="news">
+                <div class="links">
+                    <img src="https://picsum.photos/300/300?random=2">
+                </div>
+                <a href="" id="links1">
+                    <p id="news1">
+                    
+                    </p>
+                </a>
+            </li>
+            <li class="news">
+                <div>
+                    <img src="https://picsum.photos/300/300?random=3">
+                </div>
+                <a href="" id="links2">
+                    <p id="news2">
+                    
+                    </p>
+                </a>
+            </li>
+            <li class="news">
+                <div>
+                    <img src="https://picsum.photos/300/300?random=4">
+                </div>
+                <a href="" id="links3">
+                    <p id="news3">
+                    
+                    </p>
+                </a>
+            </li>
+            <li class="news">
+                <div>
+                    <img src="https://picsum.photos/300/300?random=5">
+                </div>
+                <a href="" id="links4">
+                    <p id="news4">
+                    
+                    </p>
+                </a>
+            </li>
+            <li class="news">
+                <div>
+                    <img src="https://picsum.photos/300/300?random=6">
+                </div>
+                <a href="" id="links5">
+                    <p id="news5">
+                    
+                    </p>
+                </a>
+            </li>
+            <li class="news">
+                <div>
+                    <img src="https://picsum.photos/300/300?random=7">
+                </div>
+                <a href="" id="links6">
+                    <p id="news6">
+                    
+                    </p>
+                </a>
+            </li>
+            <li class="news">
+                <div>
+                    <img src="https://picsum.photos/300/300?random=8">
+                </div>
+                <a href="" id="links7">
+                    <p id="news7">
+                    
+                    </p>
+                </a>
+            </li>
+            <li class="news">
+                <div>
+                    <img src="https://picsum.photos/300/300?random=9">
+                </div>
+                <a href="" id="links8">
+                    <p id="news8">
+                    
+                    </p>
+                </a>
+            </li>
+            <li class="news">
+                <div>
+                    <img src="https://picsum.photos/300/300?random=10">
+                </div>
+                <a href="" id="links9">
+                    <p id="news9">
+                    
+                    </p>
+                </a>
+            </li>
+
+
+        </ul>
+        
+        <script>
+            async function getapi(url) {
+            // Storing response
+            const response = await fetch(url);
+                    
+            // Storing data in form of JSON
+            var data = await response.json();
+            for (let index = 0; index < 10; index++) {
+                document.getElementById("news" + index).innerText =data["articles"][index].title;
+            }
+            for (let index = 0; index < 10; index++) {
+                // document.getElementById("links" + index).href=data["articles"][index].url;
+                // console.log(data["articles"][index].url);
+                document.getElementById("links"+index).href = (data["articles"][index].url); 
+                
+            }
+            }
+            getapi("https://newsapi.org/v2/top-headlines?country=tr&apiKey=e1a6cd23742e4b9cb1be0dffe686ab93");
+            function deneme(){
+                var query= document.getElementById("search");
+                getapi("https://newsapi.org/v2/top-headlines?country=tr&apiKey=e1a6cd23742e4b9cb1be0dffe686ab93&q=" +query.value);
+            }
+        </script>
+           
+    </div>
+    <div class="cv">
+        <img src="12312312.png" alt="">
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="footer-content">
+                <h1>thank you</h1>
+                <i class="fa-solid fa-heart"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

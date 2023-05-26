@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    
+    <header>
+        <div class="header-main">
+            <h1 class="me">Furkan Solak</h1>
+            <nav class="brands">
+                <a href=""><i class="fa-brands fa-facebook-f"></i></a> 
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <form>
+                    <input type="text" class="search"  id="search">
+                    <button id="btn" value="search" type="button" onclick="deneme()"><i class="btn fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <script src="search.js"></script>
+            </nav>
+        </div>
+        <nav class="header-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="">Business</a></li>
+                    <li><a href="">Entertainment</a></li>
+                    <li><a href="">General</a></li>
+                    <li><a href="">Health</a></li>
+                    <li><a href="">Science</a></li>
+                    <li><a href="">Sports</a></li>
+                    <li><a href="">Tecnologies</a></li>
+                </ul>
+        </nav>
+        <hr class="hr-x"> 
+        
+        </header>
+        <div class="content">
+            <ul class="news-list">
+                <li class="news">
+                    <div>
+                        <img src="https://picsum.photos/300/300?random=1">
+                    </div>
+                    <a href="" id="links0">
+                        <p id="news0">
+                        
+                        </p>
+                    </a>
+                </li>
+                <li class="news">
+                    <div class="links">
+                        <img src="https://picsum.photos/300/300?random=2">
+                    </div>
+                    <a href="" id="links1">
+                        <p id="news1">
+                        
+                        </p>
+                    </a>
+                </li>
+                <li class="news">
+                    <div>
+                        <img src="https://picsum.photos/300/300?random=3">
+                    </div>
+                    <a href="" id="links2">
+                        <p id="news2">
+                        
+                        </p>
+                    </a>
+                </li>
+                <li class="news">
+                    <div>
+                        <img src="https://picsum.photos/300/300?random=4">
+                    </div>
+                    <a href="" id="links3">
+                        <p id="news3">
+                        
+                        </p>
+                    </a>
+                </li>
+                <li class="news">
+                    <div>
+                        <img src="https://picsum.photos/300/300?random=5">
+                    </div>
+                    <a href="" id="links4">
+                        <p id="news4">
+                        
+                        </p>
+                    </a>
+                </li>
+                <li class="news">
+                    <div>
+                        <img src="https://picsum.photos/300/300?random=6">
+                    </div>
+                    <a href="" id="links5">
+                        <p id="news5">
+                        
+                        </p>
+                    </a>
+                </li>
+                <li class="news">
+                    <div>
+                        <img src="https://picsum.photos/300/300?random=7">
+                    </div>
+                    <a href="" id="links6">
+                        <p id="news6">
+                        
+                        </p>
+                    </a>
+                </li>
+                <li class="news">
+                    <div>
+                        <img src="https://picsum.photos/300/300?random=8">
+                    </div>
+                    <a href="" id="links7">
+                        <p id="news7">
+                        
+                        </p>
+                    </a>
+                </li>
+                <li class="news">
+                    <div>
+                        <img src="https://picsum.photos/300/300?random=9">
+                    </div>
+                    <a href="" id="links8">
+                        <p id="news8">
+                        
+                        </p>
+                    </a>
+                </li>
+                <li class="news">
+                    <div>
+                        <img src="https://picsum.photos/300/300?random=10">
+                    </div>
+                    <a href="" id="links9">
+                        <p id="news9">
+                        
+                        </p>
+                    </a>
+                </li>
+    
+    
+            </ul>
+            
+            <script>
+                async function getapi(url) {
+                const response = await fetch(url);
+                        
+                var data = await response.json();
+                for (let index = 0; index < 10; index++) {
+                    document.getElementById("news" + index).innerText =data["articles"][index].title;
+                }
+                for (let index = 0; index < 10; index++) {
+                    document.getElementById("links"+index).href = (data["articles"][index].url); 
+                    
+                }
+                }
+                getapi("https://newsapi.org/v2/top-headlines?country=tr&catogry=business&apiKey=e1a6cd23742e4b9cb1be0dffe686ab93");
+        
+            </script>
+        </div>
+    </body>
+</html>
